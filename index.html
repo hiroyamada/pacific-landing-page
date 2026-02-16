@@ -67,7 +67,7 @@
     .hero {
       padding: 6rem 0 7rem;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
     .hero-canvas {
       position: absolute;
@@ -335,14 +335,14 @@
     camera.position.set(0, 3, 5);
     camera.lookAt(0, 0, 0);
 
-    var geo = new THREE.PlaneGeometry(12, 8, 48, 48);
+    var geo = new THREE.PlaneGeometry(40, 30, 120, 90);
     geo.rotateX(-Math.PI * 0.45);
 
     var mat = new THREE.MeshBasicMaterial({
-      color: 0x1a1a1a,
+      color: 0x2a3a4a,
       wireframe: true,
       transparent: true,
-      opacity: 0.08
+      opacity: 0.11
     });
 
     var mesh = new THREE.Mesh(geo, mat);
@@ -356,7 +356,7 @@
     }
 
     function resize() {
-      var w = hero.offsetWidth;
+      var w = window.innerWidth;
       var h = hero.offsetHeight;
       renderer.setSize(w, h);
       camera.aspect = w / h;
@@ -371,7 +371,14 @@
       for (var i = 0; i < posAttr.count; i++) {
         var x = posAttr.getX(i);
         var z = posAttr.getZ(i);
-        var wave = Math.sin(x * 0.6 + s * 0.4) * Math.cos(z * 0.5 + s * 0.3) * 0.35;
+        // Layer 1: broad, slow swell
+        var wave = Math.sin(x * 0.3 + s * 0.15) * 0.4;
+        // Layer 2: medium rolling wave
+        wave += Math.sin(x * 0.6 + z * 0.4 + s * 0.25) * 0.25;
+        // Layer 3: gentle cross-ripple
+        wave += Math.sin(z * 0.8 - s * 0.2) * Math.cos(x * 0.5 + s * 0.1) * 0.15;
+        // Layer 4: fine surface detail
+        wave += Math.sin(x * 1.2 + z * 1.0 + s * 0.35) * 0.08;
         posAttr.setY(i, baseY[i] + wave);
       }
       posAttr.needsUpdate = true;
