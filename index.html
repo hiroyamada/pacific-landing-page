@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pacific Technology Labs</title>
-  <meta name="description" content="Pacific Technology Labs — Building next-generation AI products.">
+  <meta name="description" content="Pacific Technology Labs &mdash; Building next-generation AI products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0b0b0f;
-      --surface: #13131a;
-      --border: #1e1e2a;
-      --text: #e4e4e8;
-      --text-secondary: #8a8a9a;
-      --accent: #6c8cff;
+      --text: #1a1a1a;
+      --text-secondary: #6b6b6b;
+      --bg: #fafafa;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -28,80 +28,173 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--text); }
+    a:hover { color: var(--text-secondary); }
 
     /* ---- NAV ---- */
     nav {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
     }
     .nav-inner {
-      max-width: 960px;
+      max-width: 680px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .wordmark {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      letter-spacing: 0.02em;
       color: var(--text);
     }
     .nav-link {
       font-size: 0.85rem;
       color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    /* ---- MAIN ---- */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      width: 100%;
     }
 
     /* ---- HERO ---- */
     .hero {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 8rem 2rem 6rem;
-      flex: 1;
+      padding: 6rem 0 7rem;
+    }
+    .hero .company-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
       font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--text-secondary);
-      max-width: 520px;
-      margin-bottom: 3rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
     }
 
-    /* ---- DETAILS ---- */
-    .details {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      border-top: 1px solid var(--border);
-      padding-top: 3rem;
+    /* ---- SECTIONS ---- */
+    section {
+      padding-bottom: 5rem;
     }
-    .details dt {
-      font-size: 0.75rem;
+    section h2 {
+      font-size: 0.8rem;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       color: var(--text-secondary);
-      margin-bottom: 0.4rem;
+      margin-bottom: 2rem;
     }
-    .details dd {
+    section p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    section p + p {
+      margin-top: 1.2rem;
+    }
+
+    /* ---- FOCUS AREAS ---- */
+    .focus-item {
+      margin-bottom: 3rem;
+    }
+    .focus-item:last-child {
+      margin-bottom: 0;
+    }
+    .focus-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---- FOUNDER ---- */
+    .headshot {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.25rem;
+    }
+    .founder-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---- LOGO ROW ---- */
+    .logo-row {
+      margin-top: 2.5rem;
+    }
+    .logo-row-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+    .logo-row-icons {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .logo-row-icons svg {
+      opacity: 0.4;
+    }
+
+    /* ---- PRESS ---- */
+    .press-item {
+      margin-bottom: 1.5rem;
+    }
+    .press-item:last-child {
+      margin-bottom: 0;
+    }
+    .press-item a {
+      text-decoration: none;
+    }
+    .press-item a:hover .headline {
+      color: var(--text);
+    }
+    .press-item .outlet {
       font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
     }
+    .press-item .headline {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+    }
+
+    /* ---- CONTACT ---- */
+    .contact-email {
+      font-size: 1.05rem;
+    }
+    .contact-email a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .contact-email a:hover { color: var(--text); }
 
     /* ---- FOOTER ---- */
     footer {
-      max-width: 960px;
+      max-width: 680px;
       margin: 0 auto;
       width: 100%;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
+      padding: 4rem 2.5rem 3rem;
+      margin-top: auto;
     }
     footer p {
       font-size: 0.8rem;
@@ -109,9 +202,13 @@
     }
 
     @media (max-width: 480px) {
-      .hero { padding: 5rem 1.5rem 4rem; }
-      .details { grid-template-columns: 1fr; gap: 1.5rem; }
-      footer { padding: 1.5rem; }
+      nav { padding: 1.5rem; }
+      .hero { padding: 4rem 0 5rem; }
+      main { padding: 0 1.5rem; }
+      section { padding-bottom: 4rem; }
+      .focus-item { margin-bottom: 2.5rem; }
+      .logo-row-icons { gap: 1.5rem; }
+      footer { padding: 3rem 1.5rem 2rem; }
     }
   </style>
 </head>
@@ -120,32 +217,93 @@
   <nav>
     <div class="nav-inner">
       <span class="wordmark">Pacific Technology Labs</span>
-      <a class="nav-link" href="mailto:hiro@thisispacific.com">Contact</a>
+      <a class="nav-link" href="mailto:hiroyamada@thisispacific.com">Contact</a>
     </div>
   </nav>
 
-  <main class="hero">
-    <h1>Building next-generation<br>AI products.</h1>
-    <p>Pacific Technology Labs is a technology company focused on designing and shipping intelligent software that solves real problems.</p>
+  <main>
+    <div class="hero">
+      <p class="company-name">Pacific Technology Labs</p>
+      <h1>Building next-generation<br>AI products.</h1>
+    </div>
 
-    <dl class="details">
-      <div>
-        <dt>Founded by</dt>
-        <dd>Hiro Yamada</dd>
+    <section>
+      <h2>About</h2>
+      <p>Pacific Technology Labs is a technology company building intelligent software products powered by artificial intelligence. Founded in 2026 by Hiro Yamada, the company is focused on designing, developing, and shipping AI-native products that solve hard problems across industries.</p>
+      <p>We believe artificial intelligence will fundamentally reshape how people live and work&mdash;and that the companies building this technology have a responsibility to ensure it makes people&rsquo;s lives meaningfully better. Pacific Technology Labs exists to build products that reflect that belief: AI that is useful, humane, and grounded in real human needs.</p>
+      <p>Pacific Technology Labs brings together deep expertise in machine learning, product engineering, and software architecture&mdash;drawn from years of building products at some of the world&rsquo;s most respected technology companies and scaling a venture-backed engineering firm from zero to millions in revenue.</p>
+      <p>The company is headquartered in the United States and incorporated in Delaware.</p>
+    </section>
+
+    <section>
+      <h2>Areas of Focus</h2>
+
+      <div class="focus-item">
+        <h3>Artificial Intelligence &amp; Machine Learning</h3>
+        <p>We build AI-native products from the ground up&mdash;from model selection and training to deployment and production iteration. Our work spans natural language processing, computer vision, and applied machine learning, with a focus on building systems that are reliable, scalable, and genuinely useful.</p>
       </div>
-      <div>
-        <dt>Contact</dt>
-        <dd><a href="mailto:hiro@thisispacific.com">hiro@thisispacific.com</a></dd>
+
+      <div class="focus-item">
+        <h3>Product Engineering</h3>
+        <p>We take products from concept to launch. Our approach covers the full product lifecycle&mdash;research, design, architecture, implementation, and go-to-market&mdash;with an emphasis on speed, quality, and user impact. We&rsquo;ve shipped products used by millions of users across enterprise SaaS, fintech, govtech, and robotics.</p>
       </div>
-      <div>
-        <dt>Web</dt>
-        <dd><a href="https://thisispacific.com">thisispacific.com</a></dd>
+
+      <div class="focus-item">
+        <h3>Software Architecture &amp; Infrastructure</h3>
+        <p>We design systems built to scale. Whether it&rsquo;s a greenfield build or modernizing legacy infrastructure, we bring deep technical judgment to system design, data architecture, and platform engineering decisions.</p>
       </div>
-    </dl>
+
+      <div class="focus-item">
+        <h3>Technical Strategy &amp; Advisory</h3>
+        <p>We advise startups and growth-stage companies on AI adoption, engineering team building, and technical strategy. Our engagements are hands-on, outcome-driven, and shaped by firsthand experience building and scaling technology companies.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Founder &amp; CEO</h2>
+      <img class="headshot" src="headshot.jpg" alt="Hiro Yamada">
+      <div class="founder-name">Hiro Yamada</div>
+      <p>Hiro Yamada is the founder and CEO of Pacific Technology Labs. He is a software engineer, entrepreneur, and product builder with over a decade of experience at the intersection of AI and software development.</p>
+      <p>Prior to founding Pacific Technology Labs, Hiro co-founded and served as CEO of First Mate Technologies, a software and AI engineering studio that partnered with over 40 venture-backed startups to design and ship production-grade products. Under Hiro&rsquo;s leadership, First Mate grew to $2 million in annual recurring revenue and built a team of 30+ senior engineers. The company&rsquo;s clients included startups backed by Y Combinator, Andreessen Horowitz, NFX, Village Global, and South Park Commons, spanning fintech, govtech, legal tech, robotics, and enterprise SaaS.</p>
+      <p>Before First Mate, Hiro spent five years at Asana, the work management platform. He joined as a software engineer on the monetization team in San Francisco, where he contributed to products serving millions of users globally. He later transitioned to the business side to launch Asana&rsquo;s Tokyo office as its first employee, helping bring the product to the Japanese market.</p>
+      <p>Earlier in his career, Hiro held engineering roles at Palantir Technologies, where he worked as a Forward Deployed Product Developer, and at Google, where he built features for Google+ Communities on Android.</p>
+      <p>Hiro holds a Master of Business Administration from Harvard Business School, a Master of Science in Engineering Sciences from Harvard, and a Bachelor of Arts cum laude in Computer Science from Harvard University. He was a UNIQLO HBS Fellow, receiving full tuition sponsorship for his MBA.</p>
+
+    </section>
+
+    <section>
+      <h2>In the Press</h2>
+
+      <div class="press-item">
+        <a href="https://hackernoon.com/hiro-yamada-on-building-first-mate-technologies-silicon-valley-expertise-meets-global-perspective" target="_blank" rel="noopener">
+          <div class="outlet">HackerNoon</div>
+          <div class="headline">&ldquo;Hiro Yamada on Building First Mate Technologies: Silicon Valley Expertise Meets Global Perspective&rdquo; (April 2025)</div>
+        </a>
+      </div>
+
+      <div class="press-item">
+        <a href="https://lifestyleasia-onemega.com/people/how-two-college-friends-created-first-mate-technologies/" target="_blank" rel="noopener">
+          <div class="outlet">LifestyleAsia</div>
+          <div class="headline">&ldquo;From Dorm Room to Dev Shop: How Two College Friends Created First Mate Technologies&rdquo; (August 2025)</div>
+        </a>
+      </div>
+
+      <div class="press-item">
+        <a href="https://open.spotify.com/episode/7HPxZB4HnuE9KZQh7VJDg2" target="_blank" rel="noopener">
+          <div class="outlet">The Growth Compass Podcast</div>
+          <div class="headline">Interview with Hiro Yamada on entrepreneurship, AI, and building distributed teams (October 2025)</div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p class="contact-email"><a href="mailto:hiroyamada@thisispacific.com">hiroyamada@thisispacific.com</a></p>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Pacific Technology Labs, Inc.</p>
+    <p>&copy; 2026 Pacific Technology Labs, Inc. Incorporated in Delaware, USA.</p>
   </footer>
 
 </body>
