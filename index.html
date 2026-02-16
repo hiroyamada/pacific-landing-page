@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacific Technology Labs</title>
+  <meta name="description" content="Pacific Technology Labs — Building next-generation AI products.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0b0b0f;
+      --surface: #13131a;
+      --border: #1e1e2a;
+      --text: #e4e4e8;
+      --text-secondary: #8a8a9a;
+      --accent: #6c8cff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---- NAV ---- */
+    nav {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+      flex: 1;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ---- DETAILS ---- */
+    .details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 3rem;
+    }
+    .details dt {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+    .details dd {
+      font-size: 0.95rem;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 5rem 1.5rem 4rem; }
+      .details { grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <span class="wordmark">Pacific Technology Labs</span>
+      <a class="nav-link" href="mailto:hiro@thisispacific.com">Contact</a>
+    </div>
+  </nav>
+
+  <main class="hero">
+    <h1>Building next-generation<br>AI products.</h1>
+    <p>Pacific Technology Labs is a technology company focused on designing and shipping intelligent software that solves real problems.</p>
+
+    <dl class="details">
+      <div>
+        <dt>Founded by</dt>
+        <dd>Hiro Yamada</dd>
+      </div>
+      <div>
+        <dt>Contact</dt>
+        <dd><a href="mailto:hiro@thisispacific.com">hiro@thisispacific.com</a></dd>
+      </div>
+      <div>
+        <dt>Web</dt>
+        <dd><a href="https://thisispacific.com">thisispacific.com</a></dd>
+      </div>
+    </dl>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Pacific Technology Labs, Inc.</p>
+  </footer>
+
+</body>
+</html>
