@@ -43,8 +43,8 @@
       justify-content: space-between;
     }
     .wordmark {
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 700;
       letter-spacing: 0.02em;
       color: var(--text);
     }
@@ -79,14 +79,6 @@
       z-index: -1;
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
       -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    }
-    .hero .company-name {
-      font-size: 0.85rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-secondary);
-      margin-bottom: 1.25rem;
     }
     .hero h1 {
       font-size: clamp(2.4rem, 5.5vw, 3.6rem);
@@ -229,7 +221,7 @@
 
   <nav>
     <div class="nav-inner">
-      <span class="wordmark">Pacific Technology Labs</span>
+      <span class="wordmark">Pacific.</span>
       <a class="nav-link" href="mailto:hiroyamada@thisispacific.com">Contact</a>
     </div>
   </nav>
@@ -237,7 +229,6 @@
   <main>
     <div class="hero">
       <canvas class="hero-canvas" id="hero-canvas"></canvas>
-      <p class="company-name">Pacific Technology Labs</p>
       <h1>Building next-generation<br>AI products.</h1>
     </div>
 
@@ -319,6 +310,28 @@
   <footer>
     <p>&copy; 2026 Pacific Technology Labs, Inc. Incorporated in Delaware, USA.</p>
   </footer>
+
+  <script>
+  // Generate "P" favicon using canvas with Space Grotesk font
+  document.fonts.ready.then(function() {
+    var size = 64;
+    var c = document.createElement('canvas');
+    c.width = size;
+    c.height = size;
+    var ctx = c.getContext('2d');
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = '#fafafa';
+    ctx.font = '700 44px "Space Grotesk"';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('P', size / 2, size / 2 + 2);
+    var link = document.createElement('link');
+    link.rel = 'icon';
+    link.href = c.toDataURL('image/png');
+    document.head.appendChild(link);
+  });
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script>
