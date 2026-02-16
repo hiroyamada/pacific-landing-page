@@ -66,6 +66,19 @@
     /* ---- HERO ---- */
     .hero {
       padding: 6rem 0 7rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 100%;
+      z-index: -1;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
     }
     .hero .company-name {
       font-size: 0.85rem;
@@ -223,6 +236,7 @@
 
   <main>
     <div class="hero">
+      <canvas class="hero-canvas" id="hero-canvas"></canvas>
       <p class="company-name">Pacific Technology Labs</p>
       <h1>Building next-generation<br>AI products.</h1>
     </div>
@@ -306,5 +320,65 @@
     <p>&copy; 2026 Pacific Technology Labs, Inc. Incorporated in Delaware, USA.</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+  (function() {
+    var canvas = document.getElementById('hero-canvas');
+    var hero = canvas.parentElement;
+
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.set(0, 3, 5);
+    camera.lookAt(0, 0, 0);
+
+    var geo = new THREE.PlaneGeometry(12, 8, 48, 48);
+    geo.rotateX(-Math.PI * 0.45);
+
+    var mat = new THREE.MeshBasicMaterial({
+      color: 0x1a1a1a,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.08
+    });
+
+    var mesh = new THREE.Mesh(geo, mat);
+    mesh.position.y = -0.5;
+    scene.add(mesh);
+
+    var posAttr = geo.attributes.position;
+    var baseY = new Float32Array(posAttr.count);
+    for (var i = 0; i < posAttr.count; i++) {
+      baseY[i] = posAttr.getY(i);
+    }
+
+    function resize() {
+      var w = hero.offsetWidth;
+      var h = hero.offsetHeight;
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function animate(t) {
+      requestAnimationFrame(animate);
+      var s = t * 0.001;
+      for (var i = 0; i < posAttr.count; i++) {
+        var x = posAttr.getX(i);
+        var z = posAttr.getZ(i);
+        var wave = Math.sin(x * 0.6 + s * 0.4) * Math.cos(z * 0.5 + s * 0.3) * 0.35;
+        posAttr.setY(i, baseY[i] + wave);
+      }
+      posAttr.needsUpdate = true;
+      renderer.render(scene, camera);
+    }
+    requestAnimationFrame(animate);
+  })();
+  </script>
 </body>
 </html>
